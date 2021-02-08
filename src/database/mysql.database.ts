@@ -20,7 +20,7 @@ export default class MySQL {
     }
 
     public static doQuery(query: string, values: any[]){
-        new Promise<any>((resolve, reject) => {
+        return new Promise<any>((resolve, reject) => {
             this.instance._cnn.query(query, values, (err ,results) => {
                 if(err) reject(err);
                 else resolve(results);
