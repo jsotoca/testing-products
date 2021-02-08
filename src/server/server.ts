@@ -4,6 +4,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
 import { enviroment } from '../config/enviroment';
+import appRouter from '../routers/app.router';
 
 export default class Server {
     private _app: express.Application;
@@ -22,6 +23,8 @@ export default class Server {
             .use(cors())
             .use(helmet())
             .use(compression())
+
+            .use('/api',appRouter);
     }
 
     public start(){
